@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalit Choudhary</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;scroll-behavior:smooth;cursor:none;}
+
+/* BACKGROUND ANIMATION */
+body{
+    background: linear-gradient(-45deg,#000,#001f3f,#000,#002b5c);
+    background-size:400% 400%;
+    animation:bgMove 10s infinite alternate;
+    color:white;
+    overflow-x:hidden;
+}
+@keyframes bgMove{
+    0%{background-position:0%}
+    100%{background-position:100%}
+}
+
+/* CURSOR */
+.cursor{
+    width:20px;height:20px;
+    border:2px solid #00ffd5;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+}
+
+/* NAV */
+nav{
+    position:fixed;width:100%;
+    display:flex;justify-content:space-between;
+    padding:20px 50px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+nav a{color:white;margin-left:20px;text-decoration:none;}
+nav a:hover{color:#00ffd5;}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;flex-direction:column;
+    justify-content:center;align-items:center;
+    background:url('https://picsum.photos/1600/900') center/cover;
+    background-attachment:fixed;
+}
+
+/* TEXT */
+.glow{
+    font-size:60px;
+    color:#00ffd5;
+    text-shadow:0 0 20px #00ffd5,0 0 40px #00ffd5;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:20px;
+    padding:12px 30px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00ffd5,#00aaff);
+    color:black;
+    text-decoration:none;
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+.btn:hover{transform:scale(1.2);}
+.btn::before{
+    content:'';
+    position:absolute;
+    width:0;height:100%;
+    background:white;
+    left:0;top:0;
+    transition:0.4s;
+    z-index:-1;
+}
+.btn:hover::before{width:100%;}
+
+/* SECTION */
+section{padding:80px 20px;text-align:center;}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(50px);transition:1s;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    margin:15px;
+    display:inline-block;
+    border-radius:15px;
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 30px #00ffd5;
+}
+
+/* SKILLS */
+.skill{
+    width:80%;
+    background:#222;
+    margin:20px auto;
+    border-radius:20px;
+}
+.skill-bar{
+    height:20px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#00ffd5,#00aaff);
+    animation:load 3s;
+}
+@keyframes load{from{width:0;}}
+
+/* MIC */
+.mic{
+    width:120px;height:220px;
+    margin:30px auto;
+    border-radius:60px;
+    background:linear-gradient(#00ffd5,#0066ff);
+    box-shadow:0 0 40px #00ffd5;
+    position:relative;
+}
+.mic::after{
+    content:'';
+    position:absolute;
+    width:150px;height:150px;
+    border:2px solid #00ffd5;
+    border-radius:50%;
+    top:30px;left:-15px;
+    animation:wave 2s infinite;
+}
+@keyframes wave{
+    0%{transform:scale(1);opacity:1;}
+    100%{transform:scale(2);opacity:0;}
+}
+
+/* FORM */
+input,textarea{
+    width:80%;
+    padding:10px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+}
+
+/* CANVAS */
+canvas{
+    position:fixed;
+    top:0;left:0;
+    z-index:-1;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+<h2>Lalit</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#music">Music</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<h1 class="glow">Lalit Choudhary</h1>
+<p>BCA Student | Web Developer | Singer 🎤</p>
+<a href="#about" class="btn">Explore</a>
+</section>
+
+<section id="about" class="reveal">
+<h2>About Me</h2>
+<p>
+I am <b>Lalit Choudhary</b>, a passionate BCA 2nd year student.
+I scored <b>81% in 10th</b>. I love creating modern websites.
+
+I am also a <b>singer 🎤</b> and music is my passion.
+</p>
+</section>
+
+<section id="skills" class="reveal">
+<h2>Skills</h2>
+<div class="skill"><div class="skill-bar" style="width:90%"></div></div>
+<div class="skill"><div class="skill-bar" style="width:85%"></div></div>
+<div class="skill"><div class="skill-bar" style="width:70%"></div></div>
+</section>
+
+<section id="music" class="reveal">
+<h2>Music 🎤</h2>
+<div class="mic"></div>
+</section>
+
+<section id="projects" class="reveal">
+<h2>Projects</h2>
+<div class="card">Portfolio</div>
+<div class="card">Landing Page</div>
+<div class="card">College Project</div>
+</section>
+
+<section id="contact" class="reveal">
+<h2>Contact</h2>
+<input type="text" placeholder="Lalit Choudhary">
+<input type="email" placeholder="lalit2005@email.com">
+<textarea placeholder="Message"></textarea>
+</section>
+
+<script>
+/* CURSOR */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.top=e.clientY+"px";
+cursor.style.left=e.clientX+"px";
+});
+
+/* SCROLL */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){el.classList.add("active");}
+});
+});
+
+/* PARTICLES */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<100;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*3});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#00ffd5";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y-=0.5;
+if(p.y<0)p.y=canvas.height;
+});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
